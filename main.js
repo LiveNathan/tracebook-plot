@@ -1,24 +1,476 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+// Insert the data here
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+var JSArray = [
+    // First trace data
+    {
+        frequency: [15, 15.25, 15.51, 15.78, 16.05, 16.32, 16.6, 16.88, 17.16, 17.46, 17.75, 18.05, 18.36, 18.67, 18.99, 19.31, 19.64, 19.98, 20.32, 20.66, 21.01, 21.37, 21.73, 22.1, 22.48, 22.86, 23.25, 23.64, 24.04, 24.45, 24.87, 25.29, 25.72, 26.16, 26.6, 27.05, 27.51, 27.98, 28.46, 28.94, 29.43, 29.93, 30.44, 30.96, 31.48, 32.02, 32.56, 33.12, 33.68, 34.25, 34.83, 35.43, 36.03, 36.64, 37.26, 37.9, 38.54, 39.2, 39.86, 40.54, 41.23, 41.93, 42.64, 43.37, 44.1, 44.85, 45.61, 46.39, 47.18, 47.98, 48.8, 49.62, 50.47, 51.33, 52.2, 53.08, 53.99, 54.9, 55.84, 56.79, 57.75, 58.73, 59.73, 60.75, 61.78, 62.83, 63.9, 64.98, 66.09, 67.21, 68.35, 69.51, 70.69, 71.89, 73.12, 74.36, 75.62, 76.91, 78.22, 79.54, 80.9, 82.27, 83.67, 85.09, 86.54, 88.01, 89.5, 91.02, 92.57, 94.14, 95.74, 97.37, 99.03, 100.71, 102.42, 104.16, 105.93, 107.73, 109.56, 111.42, 113.32, 115.24, 117.2, 119.19, 121.22, 123.28, 125.37, 127.5, 129.67, 131.87, 134.12, 136.39, 138.71, 141.07, 143.47, 145.9, 148.38, 150.91, 153.47, 156.08, 158.73, 161.43, 164.17, 166.96, 169.8, 172.68, 175.62, 178.6, 181.64, 184.73, 187.86, 191.06, 194.3, 197.61, 200.96, 204.38, 207.85, 211.38, 214.98, 218.63, 222.35, 226.12, 229.97, 233.87, 237.85, 241.89, 246, 250.18, 254.43, 258.76, 263.16, 267.63, 272.18, 276.8, 281.5, 286.29, 291.15, 296.1, 301.13, 306.25, 311.46, 316.75, 322.13, 327.61, 333.17, 338.83, 344.59, 350.45, 356.4, 362.46, 368.62, 374.88, 381.26, 387.73, 394.32, 401.02, 407.84, 414.77, 421.82, 428.99, 436.28, 443.69, 451.23, 458.9, 466.7, 474.63, 482.7, 490.9, 499.24, 507.72, 516.35, 525.13, 534.05, 543.13, 552.36, 561.74, 571.29, 581, 590.87, 600.91, 611.12, 621.51, 632.07, 642.81, 653.74, 664.85, 676.15, 687.64, 699.32, 711.21, 723.29, 735.58, 748.08, 760.8, 773.73, 786.87, 800.25, 813.85, 827.68, 841.74, 856.05, 870.59, 885.39, 900.43, 915.74, 931.3, 947.12, 963.22, 979.59, 996.24, 1013.17, 1030.38, 1047.89, 1065.7, 1083.81, 1102.23, 1120.96, 1140.01, 1159.38, 1179.09, 1199.12, 1219.5, 1240.23, 1261.3, 1282.74, 1304.54, 1326.71, 1349.25, 1372.18, 1395.5, 1419.21, 1443.33, 1467.86, 1492.8, 1518.17, 1543.97, 1570.21, 1596.89, 1624.03, 1651.63, 1679.7, 1708.24, 1737.27, 1766.8, 1796.82, 1827.36, 1858.41, 1889.99, 1922.11, 1954.77, 1987.99, 2021.78, 2056.14, 2091.08, 2126.61, 2162.75, 2199.51, 2236.88, 2274.9, 2313.56, 2352.87, 2392.86, 2433.52, 2474.88, 2516.93, 2559.71, 2603.21, 2647.45, 2692.44, 2738.19, 2784.72, 2832.05, 2880.17, 2929.12, 2978.9, 3029.52, 3081, 3133.36, 3186.61, 3240.76, 3295.84, 3351.85, 3408.81, 3466.74, 3525.65, 3585.56, 3646.5, 3708.47, 3771.49, 3835.58, 3900.76, 3967.05, 4034.47, 4103.03, 4172.75, 4243.66, 4315.78, 4389.12, 4463.71, 4539.57, 4616.71, 4695.17, 4774.96, 4856.1, 4938.63, 5022.55, 5107.91, 5194.71, 5282.99, 5372.77, 5464.07, 5556.93, 5651.36, 5747.4, 5845.07, 5944.4, 6045.42, 6148.16, 6252.64, 6358.9, 6466.96, 6576.86, 6688.62, 6802.29, 6917.89, 7035.45, 7155.01, 7276.6, 7400.26, 7526.02, 7653.91, 7783.98, 7916.26, 8050.79, 8187.61, 8326.75, 8468.25, 8612.16, 8758.51, 8907.36, 9058.73, 9212.67, 9369.23, 9528.45, 9690.38, 9855.05, 10022.53, 10192.85, 10366.07, 10542.23, 10721.38, 10903.58, 11088.87, 11277.32, 11468.96, 11663.87, 11862.08, 12063.66, 12268.67, 12477.17, 12689.2, 12904.84, 13124.15, 13347.18, 13574, 13804.67, 14039.27, 14277.85, 14520.49, 14767.25, 15018.2, 15273.42, 15532.97, 15796.94, 16065.39, 16338.41, 16616.06, 16898.43, 17185.6, 17477.65, 17774.67, 18076.73, 18383.92, 18696.34, 19014.06, 19337.19, 19665.8, 20000],
 
-setupCounter(document.querySelector('#counter'))
+        magnitude: [-33.58, -33.51, -33.43, -33.35, -33.27, -33.2, -33.11, -33.03, -32.95, -32.86, -32.51, -31.95, -31.37, -30.79, -30.19, -30.12, -30.16, -30.21, -30.25, -29.98, -29.3, -28.61, -27.92, -27.22, -26.53, -25.83, -25.12, -25.09, -25.69, -26.31, -26.95, -26.52, -25.99, -25.45, -24.5, -23.17, -21.81, -20.87, -20.9, -20.93, -20.96, -20.99, -21.02, -21.16, -21.49, -21.82, -22.16, -22.51, -22.85, -23.68, -24.53, -25.03, -25.09, -25.14, -25.2, -25.25, -25.31, -25.37, -25.54, -25.83, -26.04, -26.05, -26.13, -26.47, -27.02, -28.39, -29.1, -27.91, -26.32, -24.1, -21.1, -17.54, -19.85, -23.68, -25.03, -25.57, -24.83, -23.66, -22.23, -20.45, -19.25, -18.57, -19.05, -19.32, -19.19, -18.14, -16.73, -14.94, -13.13, -13.17, -13.18, -11.72, -9.32, -7.44, -6.95, -5.98, -5.66, -5.82, -6.18, -5.86, -4.35, -3.82, -4.27, -6.75, -7.35, -5.66, -3.48, -2.95, -2.72, -2.25, -1.99, -2.62, -3.03, -4.03, -4.74, -4.05, -2.95, -2.29, -1.43, -1.82, -3.06, -2.55, -1.96, -2.46, -2.69, -3.29, -3.88, -3.72, -2.34, -2.19, -1.86, -2.03, -3.44, -3.43, -3.16, -3.04, -2.57, -2.34, -2.49, -2.85, -2.93, -1.97, -2.52, -3.83, -3.46, -2.44, -2.55, -2.69, -3.45, -3.25, -3.03, -3.13, -3.32, -2.93, -3.03, -3.29, -2.83, -2.68, -3.34, -4.08, -3.44, -2.64, -3.49, -4.24, -4.38, -4.02, -3.76, -3.34, -4.39, -4.52, -3.96, -4.22, -3.52, -4.12, -3.79, -3.93, -4.08, -4.24, -4.31, -4.31, -4.4, -4.53, -3.92, -4.03, -4.34, -4.27, -4.51, -4.85, -5.08, -5.2, -5.23, -5.47, -5.29, -4.43, -5.06, -4.51, -4.39, -4.9, -4.63, -4.19, -4.56, -4.23, -4.44, -4.24, -4.23, -4.43, -4.61, -4.87, -5.03, -4.87, -4.38, -4.27, -4.15, -3.99, -4.03, -3.94, -4.09, -4.11, -3.97, -3.85, -3.89, -3.87, -3.85, -4.18, -4.15, -4.25, -4.36, -4.45, -4.76, -4.7, -4.66, -4.84, -4.9, -5.04, -4.93, -5.05, -5.21, -5.22, -5.14, -5.3, -5.23, -5.43, -5.52, -5.39, -5.27, -5.26, -4.97, -4.52, -4.45, -4.34, -4.47, -4.31, -4.26, -4.01, -3.89, -3.78, -3.61, -3.44, -3.24, -3.12, -3.2, -3.31, -3.39, -3.73, -3.67, -3.79, -3.63, -3.26, -3.02, -2.99, -2.87, -2.74, -2.7, -2.76, -2.82, -2.84, -2.45, -2.74, -2.91, -2.8, -2.53, -2.66, -2.97, -3.11, -3.2, -3.27, -3.13, -3.73, -4.58, -5.16, -6.07, -7.01, -7.43, -6.95, -6.11, -5.4, -4.98, -4.58, -3.97, -3.43, -3, -2.82, -2.55, -2.78, -3.02, -2.92, -3.13, -3.9, -4.85, -5.55, -5.87, -5.65, -4.97, -4.2, -3.5, -2.89, -2.48, -2.26, -1.99, -1.69, -1.93, -2.09, -2.2, -2.36, -2.6, -2.86, -3.18, -3.52, -3.08, -2.28, -1.77, -1.33, -0.74, 0.04, 0.53, 0.3, -0.05, -0.66, -1.47, -2.01, -2.42, -2.52, -2.7, -2.68, -2.45, -1.94, -1.36, -1.1, -1.2, -1.52, -2.07, -2.5, -2.37, -1.93, -1.77, -1.9, -1.17, 0.31, 0.27, -1.72, -1.82, -0.99, -0.81, -1.46, -1.73, -0.57, 0.54, 0.75, 1.21, 2.79, 4.45, 4.97, 4.08, 3.71, 3.19, 2.71, 3.01, 3.95, 3.55, 2.33, 2.98, 3.63, 5.77, 7.72, 8.26, 7.87, 5.78, 1.88, -0.27, 2.81, 4.37, 5.56, 6.07, 5.82, 6.6, 6.09, 4.96, 3.89, -1.91, -4.78, 1.85, 6.32, 5.74, 6.18, 7.46, 6.78, 7.12, 8.67, 8.73, 9.4, 8.53, 5.21, 6.36, 7.59, 4.54, -0.64, -8.61, -11.88, -12.14, -14.95, -21.09, -24.27, -27.01, -29.79, -32.62, -35.5, -38.43, -41.4],
+
+        phase: [-76.3, -78.4, -80.59, -82.86, -85.12, -87.39, -89.74, -92.1, -94.45, -96.97, -76.51, -39.08, -0.4, 38.27, 78.2, 98.57, 115.58, 133.1, 150.62, 127.55, 52.24, -25.22, -102.69, -132.23, -64.59, 3.05, 72.47, 110.61, 120.02, 129.67, 139.55, 146.37, 153.1, 159.98, 111.9, 12.7, -88.71, -148.73, -113.12, -77.52, -41.18, -4.1, 33.73, 64.58, 82.9, 101.93, 120.96, 140.69, 160.43, 151.41, 141.64, 128.37, 111.35, 94.05, 76.46, 58.3, 40.15, 21.42, 31.18, 74.54, 112.14, 135.91, 140.91, 78.24, 30.38, 37.75, 43.65, 45.22, 52.64, 69.53, 87.76, 106.69, 88.37, 60.72, 53.58, 48.55, 46.85, 47.01, 44.02, 24.66, 13.58, 7.32, 2.99, 0.14, -1.96, -3.96, -4.41, -13.16, -29.1, -32.4, -28.45, -28.52, -35.26, -47.24, -55.79, -67.05, -78.54, -89.58, -96.58, -99.82, -107.11, -121.77, -138.92, -147.62, -135.66, -134.05, -136.2, -152.77, -157.34, -72.75, 175.28, 168.97, 162.37, 159.34, 156.9, 161.68, 160.51, 155.58, 141.18, 127.68, 127.93, 129.32, 126.38, 114.01, 111.63, 106.4, 106.01, 110.02, 107.14, 98.77, 90.64, 78.52, 80.26, 82.05, 79.14, 78.46, 75.41, 70.62, 65.45, 61.85, 60.58, 56.91, 50.91, 48.66, 53.05, 47.37, 42.75, 39.88, 36.77, 38.76, 37.34, 31.73, 28.01, 26.16, 23.24, 21.26, 20.56, 13.62, 10.58, 10.29, 17.63, 9.24, 1.23, 0.62, 2.68, 1.6, 0.1, -4.09, -6.74, -2.95, -7.05, -7.33, -9.14, -14.98, -12.18, -16.66, -18.68, -21.05, -22.07, -22.06, -23.46, -18.96, -22.8, -29.7, -30.3, -31.84, -35.66, -38.41, -35.7, -36.52, -38.15, -36.27, -38.67, -38.88, -43.23, -41.94, -45.92, -47.33, -47.74, -50.02, -49.02, -54.92, -56.44, -57.43, -62.52, -65.42, -67.41, -70.03, -70.45, -70.7, -71.19, -75.82, -80.1, -83.58, -86.61, -88.66, -93.36, -96.41, -99.44, -103.2, -106.94, -110.93, -112.83, -116.71, -121.74, -125.71, -128.28, -131.58, -133.96, -136.73, -139.79, -143.28, -145.7, -150.17, -153.85, -157.79, -163.1, -166.98, -171.59, -175.2, 178.16, 173.7, 168.79, 164.77, 160.91, 156.61, 152.14, 147.5, 140.39, 133.65, 127.65, 122.76, 119.06, 114.7, 111.12, 106.53, 104.23, 100.08, 94.88, 89.24, 84, 79.84, 76.38, 73.24, 68.83, 65.75, 62.05, 57.4, 50.69, 42.69, 36.58, 29.21, 20.54, 12.48, 5.45, -2.18, -9.29, -17.25, -24.27, -32.05, -36.9, -44.9, -53.56, -59.15, -64.37, -71.96, -83.54, -92.39, -98.93, -104.71, -110.88, -114.38, -112.43, -110.48, -115.54, -123.98, -131.94, -140.43, -148.43, -157.11, -98.57, 178.86, 167.88, 156.2, 143.25, 129.12, 114.37, 101.2, 91.68, 85.97, 82.76, 79.48, 73.88, 65.54, 54.78, 41.71, 26.31, 10.47, -4.99, -21.33, -41.47, -60.17, -77.19, -91.98, -103.95, -114.86, -125.22, -134.13, -142.3, -155.12, -93.49, 172.43, 156.4, 140.47, 122.05, 102.31, 83.55, 65.77, 49.32, 34.47, 20.07, 2.49, -18.93, -38.07, -54.44, -71.07, -89.62, -110.02, -132.41, -156.81, -78.52, 157.79, 137.01, 117.1, 94.68, 72.76, 51.79, 23.58, -8.45, -28.02, -41.35, -65.32, -94.65, -121.52, -142.55, -161.81, -70.81, 146.64, 121.23, 92.71, 61.44, 22.85, -13.39, -49.06, -79.93, -109.38, -141.56, 133.05, 147.03, 122.81, 94.21, 61.82, 20.97, -18.77, -66.43, -118.58, -9.6, 146.09, 129.22, 113.44, 78.91, 30.59, -30.06, -86.72, -132.78, -104.02, 144.14, 93.8, 32.56, 6.7, -26.74, -83.86, -129.55, -103.72, 133.63, 69.28, 8.47, -48.13, -95.14, -147.9, 150.45, 107.23, 67.21, -8.34, -91.98, -116.19, 155.6, 127.1, 54.85, -18.5, -86.93, -191.3, -301.89, -414.36, -528.74, -645.07, -763.37, -883.68],
+
+        coherence: [0.1824, 0.1841, 0.1859, 0.1877, 0.1896, 0.1914, 0.1933, 0.1952, 0.1971, 0.1992, 0.2047, 0.2129, 0.2214, 0.2298, 0.2386, 0.2382, 0.2359, 0.2336, 0.2313, 0.2321, 0.2369, 0.2418, 0.2467, 0.2422, 0.2188, 0.1955, 0.1715, 0.189, 0.2464, 0.3052, 0.3654, 0.3541, 0.3365, 0.3185, 0.2941, 0.2634, 0.232, 0.2095, 0.2079, 0.2062, 0.2045, 0.2028, 0.2011, 0.2088, 0.2319, 0.2558, 0.2798, 0.3046, 0.3295, 0.3262, 0.3222, 0.3144, 0.3021, 0.2896, 0.2769, 0.2638, 0.2507, 0.2372, 0.2237, 0.2097, 0.2132, 0.2562, 0.29, 0.29, 0.3006, 0.3518, 0.375, 0.3164, 0.2571, 0.197, 0.1857, 0.2137, 0.2881, 0.3774, 0.4843, 0.6019, 0.7386, 0.7748, 0.7824, 0.7954, 0.8466, 0.9119, 0.9255, 0.9489, 0.9682, 0.9611, 0.9476, 0.9436, 0.9535, 0.9765, 0.9668, 0.96, 0.9652, 0.9808, 0.9892, 0.99, 0.9838, 0.985, 0.986, 0.983, 0.99, 0.9835, 0.9524, 0.9718, 0.9892, 0.98, 0.981, 0.9914, 0.9981, 0.9873, 0.9836, 0.99, 0.99, 0.99, 0.99, 0.9721, 0.99, 0.99, 0.99, 0.9894, 0.9836, 0.99, 0.99, 0.99, 0.99, 0.9916, 0.9941, 0.99, 0.9952, 1, 1, 0.99, 0.99, 0.9985, 0.9903, 0.99, 0.99, 0.99, 0.99, 0.9845, 0.9718, 0.981, 0.9904, 0.9999, 0.9904, 0.99, 0.99, 0.9804, 0.99, 0.9995, 0.99, 0.99, 0.99, 0.99, 0.9959, 1, 0.9905, 0.99, 0.99, 0.9837, 0.989, 0.99, 0.99, 0.9983, 0.9981, 0.99, 0.99, 0.99, 0.99, 0.99, 0.9983, 0.9935, 1, 0.9852, 0.9804, 0.9886, 0.99, 0.9847, 0.9839, 0.99, 0.9884, 0.98, 0.98, 0.9891, 0.99, 0.99, 0.99, 0.99, 0.9983, 0.9914, 0.99, 0.99, 0.9807, 0.99, 0.987, 0.98, 0.98, 0.98, 0.9899, 0.9879, 0.9846, 0.9972, 0.99, 0.99, 0.99, 1, 0.99, 0.9822, 0.99, 0.99, 0.9912, 0.9938, 0.99, 0.9969, 0.99, 0.9987, 0.9925, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.997, 0.9932, 0.99, 0.9969, 1, 1, 0.9916, 0.9992, 1, 0.9985, 0.99, 0.9945, 1, 0.9917, 0.9995, 0.99, 0.9955, 0.9916, 0.99, 0.99, 0.9982, 0.99, 0.99, 0.99, 0.99, 0.9993, 1, 1, 0.9949, 0.9994, 0.99, 0.99, 0.99, 0.99, 0.9916, 0.9997, 0.9908, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.98, 0.98, 0.9851, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.9858, 0.9776, 0.9692, 0.9607, 0.976, 0.98, 0.9743, 0.97, 0.97, 0.9665, 0.96, 0.9628, 0.97, 0.97, 0.97, 0.97, 0.97, 0.9652, 0.9542, 0.95, 0.9748, 0.9702, 0.96, 0.9635, 0.97, 0.9779, 0.9696, 0.9632, 0.97, 0.97, 0.96, 0.9536, 0.9503, 0.96, 0.9512, 0.97, 0.9618, 0.96, 0.9514, 0.9542, 0.9699, 0.9412, 0.8946, 0.8612, 0.86, 0.8532, 0.8108, 0.78, 0.8234, 0.9029, 0.9077, 0.8892, 0.8339, 0.8098, 0.87, 0.8734, 0.8962, 0.8988, 0.7789, 0.5171, 0.4444, 0.7089, 0.8561, 0.8999, 0.8889, 0.84, 0.8587, 0.87, 0.8745, 0.8956, 0.8521, 0.8178, 0.9037, 0.8526, 0.775, 0.8036, 0.8114, 0.8509, 0.8325, 0.7866, 0.7422, 0.4404, 0.1222, -0.189, -0.5056, -0.8276, -1.155, -1.488, -1.8267]
+    },
+
+    // Second trace
+
+    {
+        frequency: [],
+
+        magnitude: [],
+
+        phase: [],
+
+        coherence: []
+    }
+
+]
+
+// -------------------------------------------------------------------------------
+//
+// Author:
+// Marcus Painter
+// marcus@marcuspainter.com
+// 2023-04-22
+// 2023-05-31 JS trace data
+//
+// -------------------------------------------------------------------------------
+
+// Params
+var INVERT_POLARITY = false;
+var COHERENCE_THRESHOLD = 0;
+var DELAY_MS = 0;
+
+// SPEED EVERYTHING UP
+// Disable ALL amimations globally!
+Highcharts.setOptions({
+    accessibility: {
+        enabled: false // Override warning
+    },
+    plotOptions: {
+        series: {
+            animation: false // No!
+        },
+        line: {
+            animation: false // No!
+        }
+    }
+});
+
+// Generate graph
+var magnitudeChart = Highcharts.chart("magnitudeCoherenceGraph", {
+    chart: {
+        type: "line",
+        zoomType: "x",
+        isZoomed: false,
+        alignTicks: false,
+        animation: false
+    },
+    title: {
+        text: null,
+    },
+    xAxis: {
+        type: "logarithmic",
+        min: 15,
+        max: 19000, // Show 16k label
+        //allowDecimals: false,
+        tickPositions: [
+            15, 31, 62, 125, 250, 500, 1000, 2000, 4000, 8000, 16000,
+        ].map((v) => Math.log10(v)),
+        gridLineWidth: 0.5,
+        //crosshair: false
+    },
+    yAxis: [{
+        min: -30,
+        max: 30,
+        tickInterval: 10,
+        //endOnTick: false,
+        title: {
+            text: "Magnitude",
+            reserveSpace: false,
+        },
+        labels: {
+            format: "{value}dB",
+        },
+        //crosshair: false
+    },
+        {
+            // Secondary yAxis
+            title: {
+                text: "Coherence",
+                reserveSpace: false,
+            },
+            labels: {
+                align: "right",
+                formatter: function() {
+                    return this.value * 100 + "%";
+                },
+                //format: '{value}%',
+                x: -4,
+                y: -2,
+            },
+            opposite: true,
+            min: 0,
+            max: 1,
+            tickInterval: 0.5,
+            gridLineWidth: 0,
+            height: '50%'
+        },
+    ],
+    legend: {
+        enabled: false,
+    },
+    series: [{
+        name: "Magnitude",
+        yAxis: 0,
+        color: "blue",
+        //connectNulls: true,
+        //data: xymagnitude,
+        zIndex: 101,
+    },
+        {
+            name: "Coherence",
+            yAxis: 1,
+            color: "red",
+            connectNulls: false,
+            //data: xycoherence,
+            zIndex: 100,
+        },
+        {
+            name: "Magnitude",
+            yAxis: 0,
+            color: "orange",
+            //connectNulls: true,
+            //data: xymagnitude,
+        },
+        {
+            name: "Coherence",
+            yAxis: 1,
+            color: "orange",
+            connectNulls: false,
+            //data: xycoherence,
+        },
+    ]
+});
+
+var phaseChart = Highcharts.chart("phaseGraph", {
+    chart: {
+        type: "line",
+        zoomType: "x",
+        isZoomed: false,
+        alignTicks: false,
+        animation: false
+    },
+    title: {
+        text: null,
+    },
+    xAxis: {
+        type: "logarithmic",
+        min: 15,
+        max: 19000, // Show 16k label20000
+        tickPositions: [
+            15, 31, 62, 125, 250, 500, 1000, 2000, 4000, 8000, 16000,
+        ].map((v) => Math.log10(v)),
+        gridLineWidth: 0.5,
+        //crosshair: {enabled: true}
+    },
+    yAxis: [{
+        min: -180,
+        max: 180,
+        tickInterval: 60,
+        title: {
+            text: "Phase",
+            reserveSpace: false,
+        },
+        labels: {
+            format: "{value}º",
+        },
+        //crosshair: {enabled: true}
+    }, ],
+    legend: {
+        enabled: false,
+    },
+    series: [{
+        name: "Phase",
+        yAxis: 0,
+        color: "blue",
+        //connectNulls: true,
+        //data: xyphase,
+        zIndex: 100,
+    },
+        {
+            name: "Delayed Phase",
+            yAxis: 0,
+            color: "blue",
+            //connectNulls: true,
+            //data: xyphase,
+            visible: true, // Set this to true when needed
+            zIndex: 101,
+        },
+        {
+            name: "Phase",
+            yAxis: 0,
+            color: "orange",
+            //connectNulls: true,
+            //data: xyphase,
+            visible: false, // Set this to true when needed
+        },
+    ]
+});
+
+// Convert JS array to TF XY pairs
+// { frequency[], magnitude[], phase[], coherence[] }
+// { [frequency, magnitude], [frequency, phase], [frequency, coherence] }
+function js2tf(js) {
+    let tf = {};
+    tf.magnitude = js.frequency.map((freq, i) => [freq, js.magnitude[i]]);
+    tf.phase = js.frequency.map((freq, i) => [freq, js.phase[i]]);
+    tf.coherence = js.frequency.map((freq, i) => [freq, js.coherence[i]]);
+    return tf;
+}
+
+// Convert CSV array to TF XY pairs
+// [[frequency, magnitude, phase, coherence]...]
+// { [frequency, magnitude], [frequency, phase], [frequency, coherence] }
+function csv2tf(csv) {
+    let tf = {};
+    tf.magnitude = rows.map(v => {
+        return [v[0], v[1]]
+    });
+    tf.phase = rows.map(v => {
+        return [v[0], v[2]]
+    });
+    tf.coherence = rows.map(v => {
+        return [v[0], v[3]]
+    });
+    return tf;
+}
+
+// Main tranfer function
+// Main trace
+var tf0 = js2tf(JSArray[0]); // Loads data
+// Secondary trace
+var tf1 = js2tf(JSArray[1]); // laods data. S
+
+processData();
+
+// --------------------------------------------------------------------------------
+
+// Demo UI
+
+document.getElementById("polarityCheckbox").addEventListener("click", (event) => {
+    INVERT_POLARITY = event.target.checked;
+    processData();
+});
+
+document.getElementById("delayRange").addEventListener("input", (event) => {
+    DELAY_MS = (event.target.value) / 10;
+    processData();
+    updateControls();
+});
+
+document.getElementById("coherenceRange").addEventListener("input", (event) => {
+    COHERENCE_THRESHOLD = event.target.value / 100;
+    processData();
+    updateControls();
+});
+
+
+document.getElementById("resetButton").addEventListener("click", () => {
+    INVERT_POLARITY = false;
+    COHERENCE_THRESHOLD = 0;
+    DELAY_MS = 0;
+    processData();
+    updateControls();
+});
+
+document.getElementById("secondaryButton").addEventListener("click", () => {
+    if (tf1.magnitude.length == 0) {
+        tf0 = js2tf(JSArray[0]);
+        tf1 = js2tf(JSArray[1]);
+    } else {
+        tf1.magnitude = [];
+        tf1.phase = [];
+        tf1.coherence = [];
+    }
+    processData();
+    updateControls();
+});
+
+
+function updateControls() {
+    document.getElementById("polarityCheckbox").checked = INVERT_POLARITY;
+    let delayValue = DELAY_MS * 10;
+    document.getElementById("delayRange").value = delayValue;
+    document.getElementById("delayInput").value = delayValue;
+    document.getElementById("coherenceRange").value = COHERENCE_THRESHOLD * 100;
+    document.getElementById("delayText").innerHTML = DELAY_MS;
+    document.getElementById("coherenceText").innerHTML = Math.round(COHERENCE_THRESHOLD * 100);
+}
+
+// --------------------------------------------------------------------------------
+
+// Processing
+
+// Call this every time a setting changes
+function processData() {
+
+    // If tf1 has not been set, create empty object
+    if (typeof tf1 === 'undefined' || tf1 === null) {
+        tf1 = {
+            magnitude: [],
+            phase: [],
+            coherence: []
+        }
+    }
+
+    //console.log(`Delay: ${DELAY_MS} Invert:${INVERT_POLARITY} Coherencce:${COHERENCE_THRESHOLD}`)
+    const noRedraw = false;
+    const noAnimation = false;
+
+    // Magnitude and coherence
+    const newxymagnitude = tf0.magnitude.map(mapThreshold);
+    const newxycoherence = tf0.coherence.map(mapThreshold);
+
+    magnitudeChart.series[0].setData(newxymagnitude, noRedraw);
+    magnitudeChart.series[1].setData(newxycoherence, noRedraw);
+
+    // Original phase
+    const newxyphase = tf0.phase.map(mapThreshold);
+    phaseChart.series[0].setData(newxyphase, noRedraw);
+
+
+    // Delayed/inverted phase
+    if (DELAY_MS == 0 && !INVERT_POLARITY) {
+        // Restore original phase color
+        phaseChart.series[0].color = "blue";
+
+        //phaseChart.series[1].setVisible(false, noRedraw);
+        phaseChart.series[1].setData(null, noRedraw);
+
+    } else {
+        // Orignal phase changes color to background (silver or dashed)
+        phaseChart.series[0].color = "silver";
+
+        // Processed phase becomes blue
+        const newxydelayphase = tf0.phase.map(mapThreshold).map(mapDelay).map(mapPolarity);
+        phaseChart.series[1].setVisible(true, noRedraw);
+        phaseChart.series[1].setData(newxydelayphase, noRedraw);
+    }
+
+    magnitudeChart.series[2].setData(tf1.magnitude.map(mapThreshold), noRedraw);
+    magnitudeChart.series[3].setData(tf1.coherence.map(mapThreshold), noRedraw);
+
+    phaseChart.series[2].setData(tf1.phase.map(mapThreshold), noRedraw);
+    phaseChart.series[2].setVisible(true, noRedraw);
+
+    magnitudeChart.redraw(noAnimation);
+    phaseChart.redraw(noAnimation)
+
+}
+
+function mapPolarity(v, i) {
+    if (!INVERT_POLARITY || v[1] === null) { // Ignore null values
+        return v;
+    }
+
+    return [v[0], -v[1]];
+}
+
+// Apply delay and polarity to XY phase
+function mapDelay(v, i) {
+    if (v[1] === null) { // Ignore null values
+        return v;
+    }
+
+    const f = v[0];
+    var p = v[1];
+
+    // Delay
+    if (DELAY_MS != 0) {
+        p = p + (f * 360 * (DELAY_MS * -1 / 1000));
+        p = wrapTo180(p);
+        p = round(p, 2); // Tidy up decinal places
+    }
+
+    return [f, p];
+}
+
+// Set XY items to null if below choherence treshhold.
+function mapThreshold(v, i) {
+    return (tf0.coherence[i][1] < COHERENCE_THRESHOLD) ? [v[0], null] : v;
+}
+
+// --------------------------------------------------------------------------------
+
+// Math stuff
+
+// Simplified phase wrap
+// https://stackoverflow.com/questions/11498169/dealing-with-angle-wrap-in-c-code/11498248#11498248
+// Phase in degress is exact. No need to correct for floating point error as with radians.
+function wrapTo180(x) {
+    var y = (x + 180) % 360;
+    if (y < 0)
+        y += 360;
+    return y - 180;
+}
+
+// Round number to set number of decimal places
+function round(x, d) {
+    var m = Math.pow(10, d || 0);
+    return Math.round(x * m) / m;
+}
+
+var isNumber = function isNumber(value) {
+    return typeof value === 'number' && isFinite(value);
+}
+
+var ticTime, tocTime, ticText;
+
+function tic(text) {
+    startTime = performance.now();
+}
+
+function toc() {
+    endTime = performance.now();
+    var timeDiff = endTime - startTime; //in ms
+    // strip the ms
+    timeDiff /= 1000;
+
+    // get seconds
+    var seconds = timeDiff;
+    console.log(seconds + " seconds");
+}
+
+function doStuff(tf) {
+    return (data) => {
+        toc();
+        //var rows = data.data.slice(2);
+        const rows = data.data.filter(v => {
+            return v[0] >= 15 && v[0] <= 20000 && isNumber(v[0])
+        });
+        tf.magnitude = rows.map(v => {
+            return [v[0], v[1]]
+        });
+        tf.phase = rows.map(v => {
+            return [v[0], v[2]]
+        });
+        tf.coherence = rows.map(v => {
+            return [v[0], v[3]]
+        });
+
+        processData();
+    }
+}
+
+function parseData(url, callBack) {
+    Papa.parse(url, {
+        download: true,
+        dynamicTyping: true,
+        skipEmptyLines: "greedy",
+        complete: callBack,
+        error: (err) => {
+            console.log("Error! ", err)
+        }
+    });
+}

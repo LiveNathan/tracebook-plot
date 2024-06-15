@@ -1,13 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>MagPhase Chart</title>
+    <style>
+        #graph-container {
+            display: flex;
+            flex-direction: column;
+            height: 447px;
+        }
+
+        .graph {
+            flex: 1 0 calc(47.5% - 10px);
+            min-width: 300px;
+        }
+
+        label,
+        .sysfont {
+            font-family: system-ui;
+            font-size: 11px;
+        }
+
+        #tf-container {
+            position: relative;
+        }
+
+        #graph-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            height: 5%;
+            position: absolute;
+            top: 0;
+            left: 5%;
+            right: 5%;
+            background-color: rgba(255, 255, 255, 0.8);
+            opacity: 0.7;
+            width: 88%;
+            z-index: 1;
+        }
+
+        #polarity-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        #delay-controls,
+        #coherence-controls {
+            margin-right: 10px;
+        }
+
+        #graph-container {
+            position: relative;
+            z-index: 0;
+        }
+
+    </style>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+</head>
+
+<body>
+
+<div id="tf-container">
+    <div id="graph-controls" style="clear:both;">
+        <input id="polarityCheckbox" title="Invert polarity" type="checkbox">
+        <label for="polarityCheckbox">Polarity</label>
+
+        <label for="delayRange">Delay (ms):</label>
+        <input id="delayRange" max="20" min="-20" step="0.1" title="Set delay" type="range" value="0">
+        <input id="delayInput" max="200" min="-200" step="0.001" title="Set delay" type="number" value="0">
+        <!--        <div id="delayText" class="text">0</div>-->
+
+        <label for="coherenceRange">Coherence (%):</label>
+        <input id="coherenceRange" max="100" min="0" type="range" value="0">
+        <div class="text" id="coherenceText">0</div>
+
+        <button id="resetButton" title="Reset parameters">Reset</button>
+        <button id="secondaryButton" title="Secondary trace">Secondary</button>
+    </div>
+
+    <div id="graph-container">
+        <div class="graph" id="magnitudeCoherenceGraph"></div>
+        <div class="graph" id="phaseGraph"></div>
+    </div>
+</div>
+
+<script src="/main.js" type="module"></script>
+</body>
+
 </html>
