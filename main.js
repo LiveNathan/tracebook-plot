@@ -39,7 +39,7 @@ var JSArray = [
 // Params
 var INVERT_POLARITY = false;
 var COHERENCE_THRESHOLD = 0;
-var DELAY_MS = 0;
+let DELAY_MS = 0;
 
 // SPEED EVERYTHING UP
 // Disable ALL amimations globally!
@@ -264,7 +264,13 @@ document.getElementById("polarityCheckbox").addEventListener("click", (event) =>
 });
 
 document.getElementById("delayRange").addEventListener("input", (event) => {
-    DELAY_MS = (event.target.value) / 10;
+    DELAY_MS = (event.target.value);
+    processData();
+    updateControls();
+});
+
+document.getElementById("delayInput").addEventListener("input", (event) => {
+    DELAY_MS = (event.target.value);
     processData();
     updateControls();
 });
@@ -300,11 +306,9 @@ document.getElementById("secondaryButton").addEventListener("click", () => {
 
 function updateControls() {
     document.getElementById("polarityCheckbox").checked = INVERT_POLARITY;
-    let delayValue = DELAY_MS * 10;
-    document.getElementById("delayRange").value = delayValue;
-    document.getElementById("delayInput").value = delayValue;
+    document.getElementById("delayRange").value = DELAY_MS;
+    document.getElementById("delayInput").value = DELAY_MS;
     document.getElementById("coherenceRange").value = COHERENCE_THRESHOLD * 100;
-    document.getElementById("delayText").innerHTML = DELAY_MS;
     document.getElementById("coherenceText").innerHTML = Math.round(COHERENCE_THRESHOLD * 100);
 }
 
@@ -369,16 +373,16 @@ function processData() {
 
 }
 
-function mapPolarity(v, i) {
+function mapPolarity(v) {
     if (!INVERT_POLARITY || v[1] === null) { // Ignore null values
         return v;
     }
 
-    return [v[0], -v[1]];
+    return [v[0], wrapTo180(v[1] + 180) ];
 }
 
 // Apply delay and polarity to XY phase
-function mapDelay(v, i) {
+function mapDelay(v) {
     if (v[1] === null) { // Ignore null values
         return v;
     }
@@ -387,7 +391,7 @@ function mapDelay(v, i) {
     var p = v[1];
 
     // Delay
-    if (DELAY_MS != 0) {
+    if (DELAY_MS !== 0) {
         p = p + (f * 360 * (DELAY_MS * -1 / 1000));
         p = wrapTo180(p);
         p = round(p, 2); // Tidy up decinal places
@@ -425,7 +429,6 @@ var isNumber = function isNumber(value) {
     return typeof value === 'number' && isFinite(value);
 }
 
-var ticTime, tocTime, ticText;
 
 function tic(text) {
     startTime = performance.now();
