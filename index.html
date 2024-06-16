@@ -1,81 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>MagPhase Chart</title>
-    <style>
-        #graph-container {
-            display: flex;
-            flex-direction: column;
-            height: 447px;
-            flex: auto;
-
-        }
-
-        .graph {
-            flex: 1 0 calc(47.5% - 10px);
-            min-width: 300px;
-        }
-
-        #tf-container {
-            position: relative;
-        }
-
-        #graph-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            height: 5%;
-            position: absolute;
-            top: 0;
-            left: 5%;
-            right: 5%;
-            background-color: rgba(255, 255, 255, 0.8);
-            opacity: 0.7;
-            width: 88%;
-            z-index: 1;
-            flex: auto;
-
-        }
-
-        #graph-container {
-            position: relative;
-            z-index: 0;
-        }
-    </style>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
 <body>
+<div class="relative text-sm md:text-base items-center" id="tf-container">
+    <div class="absolute z-10 flex gap-x-5 bg-white bg-opacity-70 w-full justify-around" id="graph-controls">
+        <div class="whitespace-nowrap">
+            <input id="polarityCheckbox" title="Invert polarity" type="checkbox">
+            <label class="bg-white" for="polarityCheckbox">Polarity</label>
+        </div>
 
-<div id="tf-container">
-    <div id="graph-controls" style="clear:both;">
-        <input id="polarityCheckbox" title="Invert polarity" type="checkbox">
-        <label for="polarityCheckbox">Polarity</label>
+        <label class="whitespace-nowrap bg-white" for="delayRange">Delay</label>
+        <input class="hidden md:block w-full" id="delayRange" max="20" min="-20" step="0.1" title="Set delay" type="range"
+               value="0">
+        <div class="flex">
+            <input class="border" id="delayInput" max="200" min="-200" step="0.001" title="Set delay" type="number"
+                   value="0">
+            <span class="bg-white" id="delayUnit">ms</span>
+        </div>
 
-        <label for="delayRange">Delay (ms):</label>
-        <input id="delayRange" max="20" min="-20" step="0.1" title="Set delay" type="range" value="0">
-        <input id="delayInput" max="200" min="-200" step="0.001" title="Set delay" type="number" value="0">
+        <label class="whitespace-nowrap bg-white" for="coherenceRange">Coherence</label>
+        <input class="hidden md:block w-full" id="coherenceRange" max="100" min="0" type="range" value="0">
+        <div class="flex">
+            <input class="border" id="coherenceInput" max="100" min="0" type="number" value="0">
+            <span class="bg-white" id="coherenceUnit">%</span>
+        </div>
 
-        <label for="coherenceRange">Coherence (%):</label>
-        <input id="coherenceRange" max="100" min="0" type="range" value="0">
-        <div class="text" id="coherenceText">0</div>
-
-        <button id="resetButton" title="Reset parameters">Reset</button>
-        <button id="secondaryButton" title="Secondary trace">Secondary</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white px-2 rounded" id="resetButton" title="Reset parameters">Reset</button>
+        <button class="bg-white bg-opacity-30 hover:bg-opacity-100 text-blue-700 px-2 border border-blue-500 rounded" id="secondaryButton" title="Secondary trace">Secondary</button>
     </div>
 
-    <div id="graph-container">
+    <div class="relative" id="graph-container">
         <div class="graph" id="magnitudeCoherenceGraph"></div>
         <div class="graph" id="phaseGraph"></div>
     </div>
 </div>
-
 <script src="/main.js" type="module"></script>
 </body>
-
 </html>
