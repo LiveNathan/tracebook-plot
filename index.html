@@ -6,18 +6,19 @@
     <title>MagPhase Chart</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
-    <link href="output.css" rel="stylesheet">
+    <link href="./output.css" rel="stylesheet">
 </head>
 <body>
 <div class="relative text-sm md:text-base items-center" id="tf-container">
-    <div class="absolute z-10 flex gap-x-5 bg-white bg-opacity-70 w-full justify-around" id="graph-controls">
+    <div class="absolute z-10 flex gap-x-5 bg-white bg-opacity-70 w-full justify-around px-2 pt-2" id="graph-controls">
         <div class="whitespace-nowrap">
             <input id="polarityCheckbox" title="Invert polarity" type="checkbox">
             <label class="bg-white" for="polarityCheckbox">Polarity</label>
         </div>
 
         <label class="whitespace-nowrap bg-white" for="delayRange">Delay</label>
-        <input class="hidden md:block w-full" id="delayRange" max="20" min="-20" step="0.1" title="Set delay" type="range"
+        <input class="hidden md:block w-full" id="delayRange" max="20" min="-20" step="0.1" title="Set delay"
+               type="range"
                value="0">
         <div class="flex">
             <input class="border" id="delayInput" max="200" min="-200" step="0.001" title="Set delay" type="number"
@@ -28,12 +29,17 @@
         <label class="whitespace-nowrap bg-white" for="coherenceRange">Coherence</label>
         <input class="hidden md:block w-full" id="coherenceRange" max="100" min="0" type="range" value="0">
         <div class="flex">
+            <label class="sr-only" for="coherenceInput">Coherence input</label>
             <input class="border" id="coherenceInput" max="100" min="0" type="number" value="0">
             <span class="bg-white" id="coherenceUnit">%</span>
         </div>
 
-        <button class="bg-blue-500 hover:bg-blue-700 text-white px-2 rounded" id="resetButton" title="Reset parameters">Reset</button>
-        <button class="bg-white bg-opacity-30 hover:bg-opacity-100 text-blue-700 px-2 border border-blue-500 rounded" id="secondaryButton" title="Secondary trace">Secondary</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white px-2 rounded" id="resetButton" title="Reset parameters">
+            Reset
+        </button>
+        <button class="bg-white bg-opacity-30 hover:bg-opacity-100 text-blue-700 px-2 border border-blue-500 rounded"
+                id="secondaryButton" title="Secondary trace">Secondary
+        </button>
     </div>
 
     <div class="relative" id="graph-container">
